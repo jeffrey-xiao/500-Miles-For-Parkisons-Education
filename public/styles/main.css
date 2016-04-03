@@ -1,0 +1,63 @@
+body {
+  font-family: 'Georgia';
+  background-color: #faf9f0;
+  color: #444;
+}
+
+header {
+  padding: 50px 10px;
+  color: #fff;
+  font-size: 25px;
+  text-align: center;
+  background-color: #fa5b4d;
+}
+
+.container {
+  width: 500px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+
+.main-content {
+  float: left;
+  width: 300px;
+}
+
+.main-content p {
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  float: left;
+  width: 200px;
+}
+
+.sidebar .widget {
+  border-radius: 3px;
+  border: 1pxx solid #ccc;
+  margin-left: 20px;
+  background-color: #faf9f0;
+}
+
+.sidebar .widget h1 {
+  margin: 13px 10px 4px 10px;
+  padding-bottom: 10px;
+}
+
+.sidebar .widget p {
+  font-size: 13px;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+footer {
+  width: 500px;
+  margin: 50px auto;
+  border-top: 1px dotted #ccc;
+  padding-top: 5px;
+  font-size: 13px;
+}
