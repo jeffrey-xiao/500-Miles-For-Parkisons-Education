@@ -57,7 +57,7 @@ app.get('/:name', function (req, res, next) {
 	});
 });
 
-app.get('/learn/:name', function (req, res, next) {
+app.get('/lessons/:name', function (req, res, next) {
 	var title = req.params.name.replace(/-/g, ' ').capitalize();
 	res.render('learn/' + req.params.name, {
 		title: title
