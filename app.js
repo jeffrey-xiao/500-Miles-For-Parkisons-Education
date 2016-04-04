@@ -9,7 +9,7 @@ var titles = {
 	'lessons': 'Lesson Plans',
 	'resources': 'Other Parkison\'s Resources',
 	'fundraising': 'School Fundraising Ideas',
-	'contact': 'contact'
+	'contact': 'Contact'
 };
 
 var express = require('express');

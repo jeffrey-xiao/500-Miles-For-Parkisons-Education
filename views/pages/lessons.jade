@@ -1,4 +1,8 @@
 extend ../templates/layout
+
+block vars
+	- var activePage = 'lessons';
+
 block content
 	h1 #{title}
 	p
@@ -12,6 +16,7 @@ block content
 		| lectus vestibulum faucibus eget in metus.
 		| In pellentesque faucibus vestibulum. Nulla
 		| at nulla justo, eget luctus tortor.
+
 block sidebar
 	.widget
 		h1 Widget

@@ -1,6 +1,44 @@
 $main-color: #fa5b4a;
 $background-color: #faf9f0;
 
+html {
+	font-family: 'PT Sans', sans-serif;
+}
+
+nav {
+	text-align: center;
+	background-color: #191E28;
+	ul {
+		list-style-type: none;
+		margin: 0 auto;
+		padding: 0;
+		
+		li {
+			display: inline-block;
+			a {
+				display: inline-block;
+				text-decoration: none;
+				padding: 16px 20px 20px 20px;
+				color: #aaa;
+				font-size: 18px;
+				border-top: 4px #191E28 solid;
+				
+				transition: 0.5s all;
+				&.active {
+					border-top: 4px #fff solid;
+					padding-top: 16px;
+					color: #fff;
+				}
+				&:hover {
+					border-top: 4px #ccc solid;
+					padding-top: 16px;
+					color: #ccc;
+				}
+			}
+		}
+	}
+}
+
 body {
 	font-family: 'Georgia';
 	background-color: $background-color;
