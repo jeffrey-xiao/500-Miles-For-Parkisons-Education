@@ -1,3 +1,17 @@
+String.prototype.capitalize = function() {
+	return this.replace(/(?:^|\s)\S/g, function(a) { 
+		return a.toUpperCase(); 
+	});
+};
+
+var titles = {
+	'home': 'Home',
+	'lessons': 'Lesson Plans',
+	'resources': 'Other Parkison\'s Resources',
+	'fundraising': 'School Fundraising Ideas',
+	'contact': 'contact'
+};
+
 var express = require('express');
 var morgan = require('morgan');
 var http = require('http');
@@ -9,10 +23,10 @@ var app = express();
 var port = 3000;
 var hostname = 'localhost';
 
-var srcPath = __dirname;
-var destPath = __dirname + '/public';
+var srcPath = __dirname + '/assets';
+var destPath = __dirname + '/assets';
 
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views/pages');
 app.set('view engine', 'jade');
 
 app.use(morgan('dev'));
@@ -23,24 +37,33 @@ app.use(sassMiddleware({
 	force: true,
 	outputStyle: 'expanded'
 }));
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + '/public'));
 
-
-app.get('/', function (req, res) {
-	res.render('index', {
-		title: 'Home'
+app.get('/', function (req, res, next) {
+	res.render('home', {
+		title: 'Home',
 	});
 });
 
-app.get('/blog/:name', function (req, res) {
-	res.render('blog/' + req.params.name, {
-		title: req.params.name
+app.get('/:name', function (req, res, next) {
+	res.render(req.params.name, {
+		title: titles[req.params.name.toLowerCase()]
 	}, function (err, result) {
 		if (err) {
-			console.log(err);
-			res.render('404', {
-				title: 'Page Not Found'
-			});
+			next();
+		} else {
+			res.end(result);
+		}
+	});
+});
+
+app.get('/learn/:name', function (req, res, next) {
+	var title = req.params.name.replace(/-/g, ' ').capitalize();
+	res.render('learn/' + req.params.name, {
+		title: title
+	}, function (err, result) {
+		if (err) {
+			next();
 		} else {
 			res.end(result);
 		}
