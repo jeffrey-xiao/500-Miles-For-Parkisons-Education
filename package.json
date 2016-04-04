@@ -1,7 +1,7 @@
 {
   "name": "500-Miles-For-Parkisons-Education",
   "version": "1.0.0",
-  "description": "",
+  "description": "500 Miles For Parkisons Education Site",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/jeffrey-xiao/500-Miles-For-Parkisons-Education/issues"
   },
-  "homepage": "https://github.com/jeffrey-xiao/500-Miles-For-Parkisons-Education#readme"
+  "homepage": "https://github.com/jeffrey-xiao/500-Miles-For-Parkisons-Education#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "http": "0.0.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "node-sass-middleware": "^0.9.8",
+    "path": "^0.12.7"
+  }
 }
