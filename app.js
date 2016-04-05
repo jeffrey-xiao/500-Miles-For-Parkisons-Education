@@ -37,7 +37,7 @@ app.use(sassMiddleware({
 	force: true,
 	outputStyle: 'expanded'
 }));
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res, next) {
 	res.render('home', {
