@@ -22,13 +22,14 @@ nav {
 				color: #aaa;
 				font-size: 18px;
 				border-top: 4px #191E28 solid;
-				
 				transition: 0.5s all;
+				
 				&.active {
 					border-top: 4px #fff solid;
 					padding-top: 16px;
 					color: #fff;
 				}
+				
 				&:hover {
 					border-top: 4px #ccc solid;
 					padding-top: 16px;
