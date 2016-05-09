@@ -61,13 +61,7 @@ app.get('/', function (req, res, next) {
 app.get('/:name', function (req, res, next) {
 	console.log(req.params.name);
 	res.render('home', {
-		title: titles[req.params.name.toLowerCase()]
-	}, function (err, result) {
-		if (err) {
-			next();
-		} else {
-			res.end(result);
-		}
+		title: 'Home',
 	});
 });
 
