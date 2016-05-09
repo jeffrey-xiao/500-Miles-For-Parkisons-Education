@@ -53,14 +53,14 @@ app.use(sassMiddleware({
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res, next) {
-	res.render('lessons', {
+	res.render('home', {
 		title: 'Home',
 	});
 });
 
 app.get('/:name', function (req, res, next) {
 	console.log(req.params.name);
-	res.render(req.params.name, {
+	res.render('home', {
 		title: titles[req.params.name.toLowerCase()]
 	}, function (err, result) {
 		if (err) {
