@@ -17,6 +17,63 @@ nav ul li {
   display: inline-block;
 }
 
+div.contact-form {
+  width: 100%;
+}
+
+div.contact-form form {
+  margin: 0 auto;
+  width: 250px;
+  text-align: center;
+}
+
+div.contact-form form input {
+  width: 100%;
+  padding: 7px;
+  display: block;
+  margin: 10px 0px;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+div.contact-form form textarea {
+  display: block;
+  border-radius: 3px;
+  resize: none;
+  width: 100%;
+  padding: 7px;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+div.contact-form form button {
+  display: inline;
+  width: auto;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 10px;
+}
+
+#error {
+  height: 10px;
+  color: red;
+}
+
+nav {
+  text-align: center;
+  background-color: #191E28;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
 nav ul li a {
   display: inline-block;
   text-decoration: none;
@@ -33,10 +90,44 @@ nav ul li a.active {
   color: #fff;
 }
 
-nav ul li a:hover {
+nav ul li:hover a {
   border-top: 4px #ccc solid;
   padding-top: 16px;
   color: #ccc;
+}
+
+nav ul li:hover ul {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+nav ul li ul {
+  position: absolute;
+  opacity: 0;
+  z-index: 0;
+  visibility: hidden;
+  width: 100px;
+  transition: 0.25s all, z-index 1ms;
+}
+
+nav ul li ul li {
+  display: block;
+  width: 100%;
+}
+
+nav ul li ul li a {
+  width: 100%;
+  background-color: #464a52;
+  border-top: none !important;
+  border-bottom: 1px solid white;
+  text-align: left;
+  padding: 16px 20px 20px 20px;
+}
+
+nav ul li ul li a:hover {
+  border-top: none;
+  color: white;
 }
 
 body {
@@ -54,14 +145,14 @@ header {
 }
 
 .container {
-  width: 500px;
+  width: 800px;
   margin: 50px auto;
   overflow: hidden;
 }
 
 .main-content {
   float: left;
-  width: 300px;
+  width: 500px;
 }
 
 .main-content p {
@@ -70,7 +161,7 @@ header {
 
 .sidebar {
   float: left;
-  width: 200px;
+  width: 300px;
 }
 
 .sidebar .widget {

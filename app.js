@@ -9,13 +9,15 @@ var titles = {
 	'lessons': 'Lesson Plans',
 	'resources': 'Other Parkison\'s Resources',
 	'fundraising': 'School Fundraising Ideas',
-	'contact': 'Contact'
+	'contact': 'Contact',
+	'follow': 'Follow 500 Miles'
 };
 
 var express = require('express');
 var morgan = require('morgan');
 var http = require('http');
 var path = require('path');
+var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
 var app = express();
@@ -28,7 +30,10 @@ var destPath = __dirname + '/assets';
 
 app.set('views', __dirname + '/views/pages');
 app.set('view engine', 'jade');
+app.set('view options', { layout: true });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use(sassMiddleware({
 	src: srcPath,
@@ -60,8 +65,20 @@ app.get('/:name', function (req, res, next) {
 
 app.get('/lessons/:name', function (req, res, next) {
 	var title = req.params.name.replace(/-/g, ' ').capitalize();
-	res.render('learn/' + req.params.name, {
+	res.render('lessons/' + req.params.name, {
 		title: title
+	}, function (err, result) {
+		if (err) {
+			next();
+		} else {	
+			res.end(result);
+		}
+	});
+});
+
+app.get('/team/:name', function (req, res, next) {
+	res.render('team/' + req.params.name, {
+		title: 'About Us'
 	}, function (err, result) {
 		if (err) {
 			next();
@@ -69,6 +86,12 @@ app.get('/lessons/:name', function (req, res, next) {
 			res.end(result);
 		}
 	});
+});
+
+app.post('/email', function (req, res, next) {
+	console.log("HERE");
+	console.log(req.body);
+	res.end();
 });
 
 app.get('*', function (req, res) {

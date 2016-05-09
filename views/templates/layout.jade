@@ -3,22 +3,40 @@ html
 	block vars
 	head
 		title #{title} - 500 Miles For Parkisons
-		link(rel='stylesheet', href='/styles/main.css')
-		line(rel='stylesheet', href='https://fonts.googleapis.com/css?family=PT+Sans', type='text/css')
+		link(rel='stylesheet' href='/styles/main.css')
+		line(rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans' type='text/css')
+		link(rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css")
+		
+		script(type='text/javascript' src='lib/main.js')
+		script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js')
 	body
 		header
 			h1 500 Miles For Parkisons
 		nav
 			ul
-				li: a(href='/', class = activePage == 'home' ? 'active' : '') Home
-				li: a(href='/lessons', class = activePage == 'lessons' ? 'active' : '') Lessons
-				li: a(href='/resources', class = activePage == 'resources' ? 'active' : '') Resources
-				li: a(href='/fundraising', class = activePage == 'fundraising' ? 'active' : '') Fundraising
-				li: a(href='/contact', class = activePage == 'contact' ? 'active' : '') Contact
+				li
+					a(href='/', class = activePage == 'home' ? 'active' : '') Home
+				li
+					a(href='/lessons', class = activePage == 'lessons' ? 'active' : '') Lessons
+				li
+					a(href='/fundraising', class = activePage == 'fundraising' ? 'active' : '') Fundraising
+				li
+					a(href='/follow', class = activePage == 'follow' ? 'active' : '') Follow 500 Miles
+				li
+					a(href='/resources', class = activePage == 'resources' ? 'active' : '') Other Resources
+				li
+					a(class = activePage == 'contact' ? 'active' : '') About Us & Contact
+					ul
+						li: a(href='/team/general') Team
+						li: a(href='/team/harry') Harry
+						li: a(href='/team/sue') Sue
+						li: a(href='/team/ross') Ross
+						li: a(href='/contact') Contact Us
+					
 		.container
 			.main-content
 				block content
 			.sidebar
 				block sidebar
 		footer
-			p Running on node with Express and Jade
+			p 500 Miles for Parkisons

@@ -5,17 +5,14 @@ block vars
 
 block content
 	h1 #{title}
-	p
-		| Vivamus hendrerit arcu sed erat molestie
-		| vehicula. Sed auctor neque eu tellus
-		| rhoncus ut eleifend nibh porttitor. Ut in.
-	p
-		| Donec congue lacinia dui, a porttitor
-		| lectus condimentum laoreet. Nunc eu
-		| ullamcorper orci. Quisque eget odio ac
-		| lectus vestibulum faucibus eget in metus.
-		| In pellentesque faucibus vestibulum. Nulla
-		| at nulla justo, eget luctus tortor.
+	div(class='contact-form')
+		form(onsubmit="return validateForm()" method="POST" action="email")
+			input(name='name' id='name' placeholder='Name')
+			input(name='email' id='email' placeholder='Email')
+			input(name='subject' id='subject' placeholder='Subject')
+			textarea(name='comment' id='comment' placeholder='Type your message here...' rows='5')
+			div(id='error')
+			button(type='submit') #[i(class="fa fa-paper-plane" aria-hidden="true")]&nbsp;Submit
 
 block sidebar
 	.widget
