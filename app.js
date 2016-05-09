@@ -23,8 +23,8 @@ var email = require('emailjs/email');
 
 var app = express();
 
-var port = 3000;
-var hostname = 'localhost';
+var hostname = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 var srcPath = __dirname + '/assets';
 var destPath = __dirname + '/assets';
@@ -97,8 +97,6 @@ app.get('/team/:name', function (req, res, next) {
 });
 
 app.post('/email', function (req, res, next) {
-	console.log("HERE");
-	console.log(req.body);
 	emailServer.send({
 		text:    req.body.comment, 
 		from:    req.body.name + " <" + req.body.email + ">", 
