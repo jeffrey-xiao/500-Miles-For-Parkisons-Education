@@ -19,6 +19,7 @@ var http = require('http');
 var path = require('path');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var email = require('emailjs/email');
 
 var app = express();
 
@@ -27,6 +28,13 @@ var hostname = 'localhost';
 
 var srcPath = __dirname + '/assets';
 var destPath = __dirname + '/assets';
+
+var emailServer  = email.server.connect({
+   	user:    "", 
+   	password:"", 
+   	host:    "smtp.gmail.com", 
+   	ssl:     true
+});
 
 app.set('views', __dirname + '/views/pages');
 app.set('view engine', 'jade');
@@ -91,7 +99,32 @@ app.get('/team/:name', function (req, res, next) {
 app.post('/email', function (req, res, next) {
 	console.log("HERE");
 	console.log(req.body);
-	res.end();
+	emailServer.send({
+		text:    req.body.comment, 
+		from:    req.body.name + " <" + req.body.email + ">", 
+		to:      "Jeffrey Xiao <jeffrey.xiao1998@gmail.com>",
+		subject: req.body.subject
+	}, function(err, message) { 
+		console.log(err || message); 
+		
+		var result = "";
+		if (err)
+			result = err;
+		
+		if (message)
+			result = "Email successfully sent!";
+		
+		res.render('result', {
+			title: 'Contact',
+			message: result
+		}, function (err, result) {
+			if (err) {
+				next();
+			} else {
+				res.end(result);
+			}
+		});
+	});
 });
 
 app.get('*', function (req, res) {
