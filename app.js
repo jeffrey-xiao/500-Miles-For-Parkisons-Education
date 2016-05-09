@@ -26,10 +26,8 @@ var app = express();
 var hostname = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
-var directoryPath = process.env.OPENSHIFT_REPO_DIR || __dirname;
-	
-var srcPath = directoryPath + '/assets';
-var destPath = directoryPath + '/assets';
+var srcPath = __dirname + '/assets';
+var destPath = __dirname + '/assets';
 
 var emailServer  = email.server.connect({
    	user:    "", 
@@ -38,7 +36,7 @@ var emailServer  = email.server.connect({
    	ssl:     true
 });
 
-app.set('views', directoryPath + '/views/pages');
+app.set('views', __dirname + '/views/pages');
 app.set('view engine', 'jade');
 app.set('view options', { layout: true });
 
@@ -52,7 +50,7 @@ app.use(sassMiddleware({
 	force: true,
 	outputStyle: 'expanded'
 }));
-app.use(express.static(directoryPath + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res, next) {
 	res.render('home', {
