@@ -60,8 +60,15 @@ app.get('/', function (req, res, next) {
 
 app.get('/:name', function (req, res, next) {
 	console.log(req.params.name);
-	res.render('home', {
-		title: 'Home',
+	res.render(req.params.name, {
+		title: titles[req.params.name.toLowerCase()]
+	}, function (err, result) {
+		if (err) {
+			next();
+		} else {
+			res.writeHeader(200, {"Content-Type": "text/html"});
+			res.end(result);
+		}
 	});
 });
 
@@ -73,6 +80,7 @@ app.get('/lessons/:name', function (req, res, next) {
 		if (err) {
 			next();
 		} else {	
+			res.writeHeader(200, {"Content-Type": "text/html"});
 			res.end(result);
 		}
 	});
@@ -85,6 +93,7 @@ app.get('/team/:name', function (req, res, next) {
 		if (err) {
 			next();
 		} else {
+			res.writeHeader(200, {"Content-Type": "text/html"});
 			res.end(result);
 		}
 	});
@@ -113,6 +122,7 @@ app.post('/email', function (req, res, next) {
 			if (err) {
 				next();
 			} else {
+				res.writeHeader(200, {"Content-Type": "text/html"});
 				res.end(result);
 			}
 		});
