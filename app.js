@@ -10,7 +10,8 @@ var titles = {
 	'resources': 'Other Parkison\'s Resources',
 	'fundraising': 'School Fundraising Ideas',
 	'contact': 'Contact',
-	'follow': 'Follow 500 Miles'
+	'follow': 'Follow 500 Miles',
+	'pledgeform': 'Pledge Form'
 };
 
 var express = require('express');
