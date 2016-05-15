@@ -72,20 +72,6 @@ app.get('/:name', function (req, res, next) {
 	});
 });
 
-app.get('/lessons/:name', function (req, res, next) {
-	var title = req.params.name.replace(/-/g, ' ').capitalize();
-	res.render('lessons/' + req.params.name, {
-		title: title
-	}, function (err, result) {
-		if (err) {
-			next();
-		} else {	
-			res.writeHeader(200, {"Content-Type": "text/html"});
-			res.end(result);
-		}
-	});
-});
-
 app.get('/team/:name', function (req, res, next) {
 	res.render('team/' + req.params.name, {
 		title: 'About Us'
