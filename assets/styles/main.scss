@@ -157,6 +157,11 @@ header {
 	p {
 		margin-bottom: 20px;
 	}
+
+	ul
+	{
+		list-style-type: none;
+	}
 }
 
 .sidebar {
@@ -179,12 +184,33 @@ header {
 			padding: 0px 10px;
 			margin-bottom: 10px;
 		}
+
+		button {
+			background-color: $main-color;
+    			border: #000000;
+    			color: #fff;
+    			padding: 15px 32px;
+    			text-align: center;
+    			display: inline-block;
+    			font-size: 16px;
+   			margin: 4px 2px;
+   			cursor: pointer;
+			width: 200px;
+			font-family: ‘Times New Roman’, serif;
+			
+		}
+
+		img {
+			width: 200px;
+			height: 300px;
+		}
 	}
 }
 
 p {
 	line-height: 1.8;
 }
+
 
 footer {
 	width: 500px;
