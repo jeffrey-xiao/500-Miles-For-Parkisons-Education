@@ -5,6 +5,7 @@ html
 		link(rel='stylesheet' href='/styles/main.css')
 		line(rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans' type='text/css')
 		link(rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css")
+		link(rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css")
 		
 		script(type='text/javascript' src='/lib/main.js')
 		script(type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js')
@@ -26,17 +27,16 @@ html
 				li
 					a(class = activePage == 'contact' ? 'active' : '') About Us & Contact
 					ul
-
 						li: a(href='/team/general') Team
 						li: a(href='/team/harry') Harry
 						li: a(href='/team/sue') Sue
 						li: a(href='/team/ross') Ross
 						li: a(href='/contact') Contact Us
 					
-		.container
-			.main-content
+		.container(style="margin-top:30px")
+			.main-content(class='col-sm-7')
 				block content
-			.sidebar
+			.sidebar(class='col-sm-5')
 				block sidebar
 		footer
 			p 500 Miles for Parkisons
